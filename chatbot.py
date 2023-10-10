@@ -6,7 +6,6 @@ from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts.prompt import PromptTemplate
 
-os.environ['OPENAI_API_KEY'] = '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'
 
 def template_fn(type):
     template_dict={
