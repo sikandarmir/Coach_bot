@@ -6,6 +6,12 @@ from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts.prompt import PromptTemplate
 
+# openai_api_key = os.environ.get("openai_api_key")
+# print(openai_api_key)
+if openai_api_key is None:
+    
+    # Handle the case where the environment variable is not set
+    raise Exception("OpenAI API Key is not set in environment variables")
 
 def template_fn(type):
     template_dict={
