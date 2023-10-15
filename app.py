@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify,render_template
 
 from chatbot import process_message
 from integration import integration_db
+import os
 
 app = Flask(__name__)
 
@@ -48,6 +49,17 @@ def chat():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/key', methods=['GET'])
+def get_openai_api_key():
+    openai_api_key = os.environ.get("OPENAI_API_KEY")
+    
+    if openai_api_key is None:
+        # Handle the case where the environment variable is not set
+        return jsonify({'error': 'OpenAI API Key is not set in environment variables'}), 400
+
+    return jsonify({'openai_api_key': openai_api_key})
 
 if __name__ == '__main__':
     app.run(debug=True)

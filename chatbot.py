@@ -6,7 +6,7 @@ from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts.prompt import PromptTemplate
 
-openai_api_key = os.environ.get("openai_api_key")
+openai_api_key = os.environ.get("OPENAI_API_KEY")
 # print(openai_api_key)
 if openai_api_key is None:
     
